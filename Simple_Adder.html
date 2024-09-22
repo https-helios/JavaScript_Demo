@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Simple Adder
+    </title>
+</head>
+<body>
+    <input id = "input1" type="number" placeholder = "First Input">
+    <input id = "input2" type="number" placeholder = "Second Input">
+    <button name="button" onclick="calculate()">
+        Press to Calculate
+    </button>
+    <p id = "sum"></p>
+    <script>
+        function calculate(){
+            
+            const input1 = parseInt(document.getElementById("input1").value);
+            console.log("input 1 is " + input1); //for debugging purposes
+            const input2 = parseInt(document.getElementById("input2").value);
+
+            //validating that the input is acutally a number. However this isn't really needed because the input type is "number" above in the body
+            if(isNaN(input1) || isNaN(input2)){
+                alert("This is not a number")
+            }
+            else{
+                let sum = input1 + input2;
+            console.log("sum is " + sum)
+
+            document.getElementById("sum").innerText = sum;
+        } 
+        }
+    </script>
+</body>
+</html>

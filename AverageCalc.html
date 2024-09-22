@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Average Calculator
+    </title>
+</head>
+<body>
+    <input id = "number" type = "number" placeholder = "Amount of numbers">
+    <button id = "submit" onclick = "submit()">
+        Submit
+    </button>
+    <ul id="list">
+        You have entered:
+    </ul>
+    <p id = "final">
+    </p>
+
+
+    
+    <script>
+        const mylist = []
+        function submit(){
+            const number = parseInt(document.getElementById("number").value);
+            for (let i = 0; i < number; i++)
+            {
+                var numberofnumbers = 0
+                numberofnumbers = mylist.length + 1
+                console.log (numberofnumbers)
+                var final;
+                let list1 = parseInt(prompt("Enter Number " + numberofnumbers));
+                mylist.push(list1);
+                console.log(mylist);
+                // here we are showing the user what numbers he input
+                const node = document.createElement("li");
+                const textnode = document.createTextNode(list1);
+                node.appendChild(textnode);
+                document.getElementById("list").appendChild(node);
+                // here we are making code to add up all the numbers in the array
+                var sum = 0
+                for (let i = 0; i < mylist.length; i++)
+                {
+                    sum+= mylist[i];
+                }
+                console.log("Sum is " + sum)
+            }
+
+            let average = sum/number
+            document.getElementById("final").innerHTML = "The Average is " + average;
+        }
+
+        
+    </script>
+</body>
+</html>

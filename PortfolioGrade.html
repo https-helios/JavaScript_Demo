@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Portfolio Grader
+    </title>
+</head>
+<body>
+    <input id  = "markinput" type = "number" placeholder = "Analysis Mark">
+    <input id  = "designinput" type = "number" placeholder = "Design Mark">
+    <input id  = "impinput" type = "number" placeholder = "Implementation Mark">
+    <input id  = "evalinput" type = "number" placeholder = "Evaluation Mark">
+    <button id  = "submit" onclick = "submit()">
+        Submit
+    </button>
+    <p id = "totalmark">
+    </p>
+    <p id = "grade">
+    </p>
+    <p id = "nextband">
+    </p>
+    <!-- ------------------------------------------ -->
+    <script>
+        function submit() {
+            //document.getElementById("test").innerText = "asdasdafhasdfa";
+            const mark = parseInt(document.getElementById("markinput").value);
+            const design = parseInt(document.getElementById("designinput").value);
+            const implementation = parseInt(document.getElementById("impinput").value);
+            const evaluation = parseInt(document.getElementById("evalinput").value);
+            let totalmark = mark + design + implementation + evaluation
+            if(mark > 25 || design > 25 || implementation > 25 || evaluation > 25){
+                return alert("Enter a number below 25")
+            }
+            
+            // && is the AND function on Python
+
+            else if (totalmark < 4) {
+                document.getElementById("grade").innerText = "Your grade was U"
+                let nextband = 4 - totalmark;
+                document.getElementById("nextband").innerText = "You were " + nextband + " marks off the next band"
+            }
+            else if (totalmark < 13 && totalmark > 4) {
+                document.getElementById("grade").innerText = "Your grade was G"
+                let nextband = 13 - totalmark;
+                document.getElementById("nextband").innerText = "You were " + nextband + " marks off the next band"
+            }
+            else if (totalmark < 22 && totalmark > 13) {
+                document.getElementById("grade").innerText = "Your grade was F"
+                let nextband = 22 - totalmark;
+                document.getElementById("nextband").innerText = "You were " + nextband + " marks off the next band"
+            }
+            else if (totalmark < 31 && totalmark > 22) {
+                document.getElementById("grade").innerText = "Your grade was E"
+                let nextband = 31 - totalmark;
+                document.getElementById("nextband").innerText = "You were " + nextband + " marks off the next band"
+            }
+            else if (totalmark < 41 && totalmark > 31) {
+                document.getElementById("grade").innerText = "Your grade was D"
+                let nextband = 41 - totalmark;
+                document.getElementById("nextband").innerText = "You were " + nextband + " marks off the next band"
+            }
+            else if (totalmark < 54 && totalmark > 41) {
+                document.getElementById("grade").innerText = "Your grade was C"
+                let nextband = 54 - totalmark;
+                document.getElementById("nextband").innerText = "You were " + nextband + " marks off the next band"
+            }
+            else if (totalmark < 67 && totalmark > 54) {
+                document.getElementById("grade").innerText = "Your grade was B"
+                let nextband = 67 - totalmark;
+                document.getElementById("nextband").innerText = "You were " + nextband + " marks off the next band"
+            }
+            else if (totalmark < 80 && totalmark > 67) {
+                document.getElementById("grade").innerText = "Your grade was A"
+                let nextband = 80 - totalmark;
+                document.getElementById("nextband").innerText = "You were " + nextband + " marks off the next band"
+            }
+            else if(totalmark > 88) {
+                document.getElementById("grade").innerText = "Your grade was A*";
+            }
+            document.getElementById("totalmark").innerText = "your total mark was " + totalmark;
+            var grade;
+            var nextband;
+    }
+        
+        
+    </script>
+</body>
+</html>
