@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Compound Interest Challenge
+    </title>
+</head>
+<body>
+    <button id = "start" onclick = "calc()">
+    Press to start
+    </button>
+    <p id = "p1">
+    </p>
+    <ul id = "list">
+    </ul>>
+    <script>
+        function calc(){
+            const yearlist = []
+            let balance = parseFloat(prompt("Enter your current balance "));
+            const mylist = [balance];
+            var interestrate = parseFloat(prompt("Enter the interest rate "));
+            let desired = parseFloat(prompt("Enter the desired balance"));
+            if(interestrate>1){
+                var interestrate = interestrate /100
+            }
+            var percentageint = interestrate * 100
+            console.log(percentageint)
+            console.log(interestrate)
+            //----------------------- put p1 above the while loop
+            document.getElementById("p1").innerHTML = balance + "£ starting balance - " + percentageint + "% interest rate (" + interestrate + ")"; 
+            var year = 0
+            var newbalance = 0
+            var newbalance = (balance * interestrate) + balance
+            console.log(newbalance)
+            // while loop:
+            while(desired>newbalance){
+                var year = year + 1
+                mylist.push(newbalance);
+                yearlist.push(year)
+                var newbalance = (newbalance * interestrate) + newbalance
+                console.log("This is newbalance: " + newbalance)
+                console.log(yearlist)
+
+            }
+            // outputs
+            for (let i =0; i < mylist.length -1; i++){
+
+                const node = document.createElement("li");
+                const textnode = document.createTextNode("Year " + yearlist[i]+": New balance = " + mylist[i]+ " + ( " + mylist[i]+ "*" + interestrate + ") = " + mylist[i+1]);
+                node.appendChild(textnode);
+                document.getElementById("list").appendChild(node);
+
+
+                var count = count + 1
+                var count2 = count2 + 1
+            }
+            
+            }
+    </script>
+</body>
+</html>
+
+
